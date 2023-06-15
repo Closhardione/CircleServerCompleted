@@ -31,10 +31,10 @@ public class HelloController {
     private ServerThread serverThread;
     private Server server;
 
-    public HelloController(){
-        server = new Server(5000);
-        serverThread = new ServerThread("localhost",5000);
-    }
+//    public HelloController(){
+//        server = new Server(5000);
+//        serverThread = new ServerThread("localhost",5000);
+//    }
 
     public void initialize(){
         graphicsContext = canvas.getGraphicsContext2D();
@@ -72,8 +72,8 @@ public class HelloController {
         double radius = radiusSlider.getValue();
         Color fillColor = colorPicker.getValue();
         server.saveDot(new Dot(x,y,radius,fillColor));
-        serverThread.send(x,y,radius,fillColor);
-        graphicsContext.setFill(fillColor);
-        graphicsContext.fillOval(x-radius,y-radius,2*radius,2*radius);
+        serverThread.send(x-radius/2,y-radius/2,radius,fillColor);
+//        graphicsContext.setFill(fillColor);
+//        graphicsContext.fillOval(x-radius,y-radius,2*radius,2*radius);
     }
 }
