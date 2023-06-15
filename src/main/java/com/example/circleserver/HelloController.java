@@ -2,19 +2,16 @@ package com.example.circleserver;
 
 import com.example.circleserver.client.ServerThread;
 import com.example.circleserver.server.Server;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.control.ColorPicker;
-import javafx.scene.control.Label;
 import javafx.scene.control.Slider;
 import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.paint.Color;
 
-import java.io.IOException;
-import java.net.ServerSocket;
+
 
 public class HelloController {
     public GraphicsContext graphicsContext;
@@ -31,10 +28,6 @@ public class HelloController {
     private ServerThread serverThread;
     private Server server;
 
-//    public HelloController(){
-//        server = new Server(5000);
-//        serverThread = new ServerThread("localhost",5000);
-//    }
 
     public void initialize(){
         graphicsContext = canvas.getGraphicsContext2D();
@@ -73,7 +66,5 @@ public class HelloController {
         Color fillColor = colorPicker.getValue();
         server.saveDot(new Dot(x,y,radius,fillColor));
         serverThread.send(x-radius/2,y-radius/2,radius,fillColor);
-//        graphicsContext.setFill(fillColor);
-//        graphicsContext.fillOval(x-radius,y-radius,2*radius,2*radius);
     }
 }
